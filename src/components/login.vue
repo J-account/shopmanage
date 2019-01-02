@@ -48,8 +48,8 @@ export default {
     // 简化上述代码  用es7语法
     async handleLogin () {
       const res = await this.$http.post('login', this.formdata)
-      console.log(res) 
-      const {data: {data, meta:{msg, status}}} = res
+      console.log(res)
+      const {data: {data, meta: {msg, status}}} = res
       if (status === 200) {
         // 保存data中的token值(是加密的字符串 将来写其他功能时会用)
         localStorage.setItem('token', data.token)
