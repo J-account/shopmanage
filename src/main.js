@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 // import axios from 'axios'
+import MyBread from '@/components/cusBread.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/index.css'
@@ -10,6 +11,9 @@ import App from './App'
 import router from './router'
 import moment from 'moment'
 
+
+// 全局组件 面包屑
+Vue.component('my-bread', MyBread);
 // 处理日期格式的全局过滤器
 Vue.filter('fmtDate', (v) => {
   return moment(v).format('YYYY-MM-DD')
