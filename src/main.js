@@ -8,6 +8,12 @@ import '@/assets/index.css'
 import Http from './plugins/http'
 import App from './App'
 import router from './router'
+import moment from 'moment'
+
+// 处理日期格式的全局过滤器
+Vue.filter('fmtDate', (v) => {
+  return moment(v).format('YYYY-MM-DD')
+})
 
 Vue.use(Http)
 Vue.use(ElementUI)

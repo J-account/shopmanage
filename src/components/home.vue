@@ -16,13 +16,13 @@
     <el-container>
       <!-- 侧边栏导航 -->
       <el-aside width="200px" class="aside">
-        <el-menu default-active="2" class="el-menu-vertical-demo" unique-opened>
+        <el-menu default-active="2" class="el-menu-vertical-demo" :unique-opened='true' router>
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
               <span>用户管理</span>
             </template>
-            <el-menu-item index="1-1">
+            <el-menu-item index="users">
               <i class="el-icon-menu"></i>
               用户列表
             </el-menu-item>
@@ -81,7 +81,10 @@
           </el-submenu>
         </el-menu>
       </el-aside>
-      <el-main class="main">Main</el-main>
+      <!-- 中间区域 -->
+      <el-main class="main">
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -116,12 +119,6 @@ export default {
 }
 .header {
   background-color: #b1becf;
-}
-.aside {
-  background: orange;
-}
-.main {
-  background-color: palevioletred;
 }
 .middle {
   line-height: 60px;
