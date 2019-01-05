@@ -34,11 +34,11 @@
       <el-table-column prop="username" label="用户名" width="120"></el-table-column>
       <el-table-column prop="email" label="邮箱" width="120"></el-table-column>
       <el-table-column prop="mobile" label="电话" width="140"></el-table-column>
-      <el-table-column prop="create_time" label="创建日期" width="120">
+      <el-table-column label="创建日期" width="120">
         <!--属性 slot-scope 会自动去找上一级数据源tableData 即此时的scope=tableData -->
         <template slot-scope="scope">{{scope.row.create_time | fmtDate}}</template>
       </el-table-column>
-      <el-table-column prop="mg_state" label="用户状态" width="80">
+      <el-table-column label="用户状态" width="120">
         <template slot-scope="scope">
           <el-switch
             @change="changeUserState(scope.row)"
@@ -210,7 +210,8 @@ export default {
     },
     // 修改用户状态
     async changeUserState(user) {
-      const res = await this.$http.put(`users/${user.id}/${user.mg_state}`);
+      const res = await this.$http.put(`users/${user.id}/state/${user.mg_state}`);
+      console.log(res)
     },
     // 用户编辑----显示编辑页面表单
     showDiaEdit(userData) {
